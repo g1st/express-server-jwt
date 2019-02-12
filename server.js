@@ -7,12 +7,12 @@ const { port, db } = require('./config');
 const router = require('./router');
 
 const app = express();
-mongoose.connect(db);
+mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true });
 
 app.use(morgan('combined'));
 app.use(cors());
 app.enable('trust proxy');
-app.use(bodyParser.json({type: '*/*'}));
+app.use(bodyParser.json({ type: '*/*' }));
 
 router(app);
 
