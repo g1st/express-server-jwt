@@ -1,5 +1,5 @@
-const Authentication = require('./controllers/authentication');
 const passport = require('passport');
+const Authentication = require('./controllers/authentication');
 require('./services/passport');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -16,5 +16,5 @@ module.exports = function(app) {
 
   app.post('/signin', requireSignIn, Authentication.signin);
 
-  // app.post('/signup', Authentication.signup);
+  app.post('/signup', Authentication.signup);
 };
