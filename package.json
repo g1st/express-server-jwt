@@ -8,6 +8,9 @@
   },
   "author": "alan2207",
   "license": "ISC",
+  "engines": {
+    "node": "11.2"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
