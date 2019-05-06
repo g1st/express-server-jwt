@@ -10,6 +10,7 @@ const { PORT, MONGODB_URL } = process.env;
 
 const app = express();
 app.use(cors());
+app.options('*', cors());
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true });
 
 app.use(morgan('combined'));
