@@ -6,12 +6,12 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
 
-const { PORT, MONGODB_URL } = process.env;
+const { PORT, MONGO_URL } = process.env;
 
 const app = express();
 app.use(cors());
 
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(MONGO_URL, { useNewUrlParser: true, useCreateIndex: true });
 
 app.use(morgan('combined'));
 app.enable('trust proxy');
