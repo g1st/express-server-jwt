@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
 
@@ -14,12 +13,12 @@ app.use(cors());
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 app.use(morgan('combined'));
 app.enable('trust proxy');
-app.use(bodyParser.json({ type: '*/*' }));
+app.use(express.json({ type: '*/*' }));
 
 router(app);
 

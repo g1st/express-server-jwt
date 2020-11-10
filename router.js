@@ -5,12 +5,12 @@ require('./services/passport');
 const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignIn = passport.authenticate('local', { session: false });
 
-module.exports = function(app) {
-  app.get('/', function(req, res) {
-    res.send('Express Server with JWT Authentication');
+module.exports = function (app) {
+  app.get('/', function (req, res) {
+    res.send('Nothing to see here');
   });
 
-  app.get('/user', requireAuth, function(req, res) {
+  app.get('/user', requireAuth, function (req, res) {
     res.send({ user: req.user.email.split('@')[0] });
   });
 
